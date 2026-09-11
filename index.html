@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدونة أسرار التداول والتشفير</title>
+    <style>
+        :root { --bg-body: #0b0f19; --bg-card: #151c2c; --primary: #38bdf8; --secondary: #a855f7; --accent: #22c55e; --text-main: #f8fafc; --text-sub: #94a3b8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.7; }
+        header { background: linear-gradient(135deg, #1e1b4b, #0f172a); padding: 1.2rem 2rem; border-bottom: 2px solid var(--secondary); text-align: center; }
+        .logo { font-size: 1.6rem; font-weight: 800; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; display: flex; gap: 2rem; flex-wrap: wrap; }
+        main { flex: 3; min-width: 300px; }
+        aside { flex: 1; min-width: 280px; }
+        .ad-banner { background: rgba(56, 189, 248, 0.05); border: 1px dashed var(--primary); color: var(--primary); text-align: center; padding: 1rem; margin-bottom: 1.5rem; border-radius: 8px; font-size: 0.85rem; font-weight: bold; }
+        .post-card { background: var(--bg-card); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .tag { background: rgba(168, 85, 247, 0.2); color: var(--secondary); padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+        .post-title { font-size: 1.3rem; margin: 0.6rem 0; color: #fff; }
+        .post-desc { color: var(--text-sub); font-size: 0.95rem; margin-bottom: 1rem; }
+        .btn { background: linear-gradient(90deg, var(--primary), #0284c7); color: white; padding: 0.5rem 1.2rem; border-radius: 6px; border: none; cursor: pointer; font-weight: bold; }
+        .widget { background: var(--bg-card); padding: 1.2rem; border-radius: 12px; border: 1px solid #1e293b; margin-bottom: 1.5rem; }
+        footer { text-align: center; padding: 2rem; background: #070a12; color: var(--text-sub); margin-top: 3rem; border-top: 1px solid #1e293b; }
+        .footer-links { margin-bottom: 1rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--primary); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header><div class="logo">أسرار التداول والتشفير</div></header>
+    <div class="container">
+        <main>
+            <div class="ad-banner">💰 مساحة إعلانية رئيسية (Google AdSense Top)</div>
+            <div id="articles-list"></div>
+            <div class="ad-banner">📢 مساحة إعلانية داخل المحتوى (In-Feed Ad)</div>
+        </main>
+        <aside>
+            <div class="widget">
+                <h3>إحصائيات المدونة</h3>
+                <p style="color: var(--text-sub); font-size: 0.9rem; margin-top: 8px;">عدد المقالات المنشورة: <strong id="count-display" style="color: var(--accent);">0</strong> مقال</p>
+            </div>
+            <div class="ad-banner">🎯 مساحة إعلانية جانبية (Sidebar Ad)</div>
+        </aside>
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">من نحن</a>
+            <a href="privacy.html">سياسة الخصوصية</a>
+            <a href="contact.html">اتصل بنا</a>
+        </div>
+        <p>جميع الحقوق محفوظة &copy; 2026 - مدونة التداول والعملات الرقمية</p>
+    </footer>
+    <script src="articles.js"></script>
+    <script>
+        const container = document.getElementById('articles-list');
+        document.getElementById('count-display').innerText = articlesData.length;
+        articlesData.forEach(art => {
+            const card = document.createElement('article');
+            card.className = 'post-card';
+            card.innerHTML = `
+                <span class="tag">${art.category}</span>
+                <h2 class="post-title">${art.title}</h2>
+                <p class="post-desc">${art.content}</p>
+                <button class="btn">قراءة المقال بالكامل</button>
+            `;
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
